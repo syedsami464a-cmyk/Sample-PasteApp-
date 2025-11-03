@@ -1,0 +1,18 @@
+ul{
+    list-style: none;
+    height: 40px;
+    display: flex;
+    justify-content: space-around;
+    padding-right: 10px;
+    background-color: aqua;
+    align-items: center;
+    font-size: 1.5rem;
+
+}
+a{
+    text-decoration: none;
+    color: maroon;
+}
+.active-link{
+    border: 2px solid red;
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .main_content {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .camera-container {
+      position: relative;
+      display: inline-block;
+      height: 150px;
+      width: 150px;
+      background-color: violet;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .camera-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .fullscreen-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(0,0,0,0.6);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .fullscreen-btn img {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="main_content">
+    <div class="camera-container" id="cameraBox1">
+      <img src="camera.jpg" alt="Camera Feed" class="camera-img">
+      <button class="fullscreen-btn">
+        <img src="FullScreen.svg" alt="Fullscreen" width="25" height="25">
+      </button>
+    </div>
+
+    <div class="camera-container" id="cameraBox2">
+      <img src="camera.jpg" alt="Camera Feed" class="camera-img">
+      <button class="fullscreen-btn">
+        <img src="FullScreen.svg" alt="Fullscreen" width="25" height="25">
+      </button>
+    </div>
+
+    <div class="camera-container" id="cameraBox3">
+      <img src="camera.jpg" alt="Camera Feed" class="camera-img">
+      <button class="fullscreen-btn">
+        <img src="FullScreen.svg" alt="Fullscreen" width="25" height="25">
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // Get all fullscreen buttons
+    const fullscreenButtons = document.querySelectorAll(".fullscreen-btn");
+
+    fullscreenButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        const container = button.parentElement; // the camera-container
+        if (!document.fullscreenElement) {
+          container.requestFullscreen();
+        } else {
+          document.exitFullscreen();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
